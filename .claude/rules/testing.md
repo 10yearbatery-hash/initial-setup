@@ -1,3 +1,9 @@
+---
+paths:
+  - "**/*.test.{ts,tsx,js,jsx,py}"
+  - "**/*.spec.{ts,tsx,js,jsx,py}"
+---
+
 # 테스트 규칙
 
 superpowers test-driven-development 기반.
