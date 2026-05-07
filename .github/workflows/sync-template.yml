@@ -24,8 +24,9 @@ jobs:
           # master 내용을 template에 덮어쓰기
           git checkout master -- .
 
-          # docs 폴더 제거
+          # docs, .github 폴더 제거
           git rm -r --cached docs/ --ignore-unmatch
+          git rm -r --cached .github/ --ignore-unmatch
 
           # 변경사항이 있을 때만 커밋
           git diff --cached --quiet || git commit -m "master 동기화 (docs 제외)"
