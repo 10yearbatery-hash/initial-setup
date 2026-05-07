@@ -1,3 +1,8 @@
+---
+paths:
+  - "**/*.{ts,tsx,js,jsx,py,java,go,rs,cpp,c}"
+---
+
 # 코딩 규칙
 
 superpowers writing-plans + test-driven-development 기반.
