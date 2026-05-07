@@ -45,6 +45,7 @@ superpowers 스킬 사용 시에도 동일하게 적용한다.
 | 디버깅 | `.claude/rules/debugging.md` |
 | 완료 확인 | `.claude/rules/verification.md` |
 | 새 프로젝트 시작 | `.claude/rules/project-setup.md` |
+| GitHub push/PR | `.claude/rules/git-push.md` |
 
 ---
 
