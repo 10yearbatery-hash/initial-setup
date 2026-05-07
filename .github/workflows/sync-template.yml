@@ -1,0 +1,33 @@
+name: template 브랜치 동기화
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 코드 받기
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: template 브랜치 동기화 (docs 제외)
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+
+          # template 브랜치가 있으면 전환, 없으면 새로 생성
+          git checkout template 2>/dev/null || git checkout -b template
+
+          # main 내용을 template에 덮어쓰기
+          git checkout main -- .
+
+          # docs 폴더 제거
+          git rm -r --cached docs/ --ignore-unmatch
+
+          # 변경사항이 있을 때만 커밋
+          git diff --cached --quiet || git commit -m "main 동기화 (docs 제외)"
+
+          git push origin template
